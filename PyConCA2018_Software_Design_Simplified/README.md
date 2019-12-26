@@ -31,9 +31,9 @@ Domain
 System
 * I/O
 
-⋅⋅* Database
-⋅⋅* Filesystem
-⋅⋅* Network
+  * Database
+  * Filesystem
+  * Network
 
 * Logic
 * Coordination
