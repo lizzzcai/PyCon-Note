@@ -1,6 +1,8 @@
 
 # to avoid lost context when using a decorator
 from contextlib import wraps
+import logging
+import os
 
 class User:
     is_authenticated = False
@@ -32,6 +34,18 @@ def enforce_authentication(func):
 def display_profile_page_with_decorator(user):
     """Display profile page for logged in User"""
     print('Profile: %s' % user.name)
+
+
+def debug(func):
+    log = logging.getLogger(func.__module__)
+    msg = func.__qualname__
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        log.debug(msg)
+        return func(*args, **kwargs)
+    return wrapper
+
+
 
 if __name__ == '__main__':
     user = User('nina')

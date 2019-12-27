@@ -1,4 +1,5 @@
 # Life Cycle with Metaclasses
+print("My MetaClass")
 class MyMetaClass(type):
     _test_attribute = 1
     def __new__(cls, *args, **kwargs):
@@ -15,6 +16,8 @@ class MyMetaClass(type):
 
     def test_method_1(self):
         print("MyMetaClass - Test method 1 called")
+
+print("My Class")
 
 class MyClass(metaclass=MyMetaClass):
     def __new__(cls, *args, **kwargs):
